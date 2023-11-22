@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.gemfire.GemfireTemplate;
 
 @SpringBootApplication
-public class ClientTest {
+public class SpringBootClient {
 
   public static void main(String[] args) {
-    new SpringApplicationBuilder(ClientTest.class).web(WebApplicationType.NONE).run(args);
+    new SpringApplicationBuilder(SpringBootClient.class).web(WebApplicationType.NONE).run(args);
   }
 
   @Bean
