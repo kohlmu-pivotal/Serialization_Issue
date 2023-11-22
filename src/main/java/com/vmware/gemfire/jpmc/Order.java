@@ -5,8 +5,8 @@ import org.springframework.data.gemfire.mapping.annotation.Region;
 
 @lombok.Data
 @lombok.AllArgsConstructor
-@lombok.NoArgsConstructor
 @lombok.Builder
+@lombok.Setter
 @Region("Orders")
 public class Order {
   @Id

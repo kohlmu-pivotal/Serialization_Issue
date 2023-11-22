@@ -12,26 +12,18 @@ import org.springframework.data.gemfire.config.annotation.ClientCacheApplication
 import org.springframework.data.gemfire.config.annotation.EnableEntityDefinedRegions;
 import org.springframework.data.gemfire.config.annotation.EnablePdx;
 import org.springframework.data.gemfire.mapping.MappingPdxSerializer;
-import org.springframework.data.gemfire.util.CollectionUtils;
-
-import java.util.Set;
+import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
 
 @Configuration
 @ClientCacheApplication(locators = {@ClientCacheApplication.Locator(host = "localhost", port = 10334)})
 @EnableEntityDefinedRegions(basePackageClasses = Order.class)
 @EnablePdx(serializerBeanName = "OrderPdxSerializer", readSerialized = false)
+@EnableGemfireRepositories(basePackageClasses = OrderRepository.class)
 public class TestConfig {
     @Bean("OrderPdxSerializer")
     @Profile("MappingPdxSerializer")
     MappingPdxSerializer customMappingPdxSerializer() {
-
-      Set<Class<?>> includedTypes = CollectionUtils.asSet(Order.class);
-
-      MappingPdxSerializer customMappingPdxSerializer = MappingPdxSerializer.newMappingPdxSerializer();
-
-      customMappingPdxSerializer.setIncludeTypeFilters(type -> includedTypes.contains(type));
-
-      return customMappingPdxSerializer;
+      return MappingPdxSerializer.newMappingPdxSerializer();
     }
 
     @Bean("OrderPdxSerializer")
