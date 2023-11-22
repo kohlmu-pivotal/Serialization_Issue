@@ -1,6 +1,5 @@
 package com.vmware.gemfire.jpmc;
 
-import org.springframework.data.gemfire.GemfireTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
