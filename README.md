@@ -10,7 +10,7 @@ list members
 create region --name=Orders --type=REPLICATE
 ```
 
-In the code there are two clients `SpringBootClient`
+In the code there is a client `SpringBootClient`
 
 The `SpringBootClient` is configured to use both `MappingPdxSerializer` and `ReflectionBasedAutoSerializer`. Which serialization is used is selected in the `application.properties` file.
 By defaut the `MappingPdxSerializer` is used, but can be changed by (un)commenting the lines. 
